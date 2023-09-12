@@ -1,0 +1,17 @@
+{
+    "name": ".NET Safe Fleet Build & Test",
+    "description": "Safe Fleet NET starter workflow.",
+    "iconName": "file-code",
+    "categories": [
+        "continuous-integration",
+        "testing",
+        "C#"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$",
+        ".*\\.csproj$",
+        ".*\\.sln$"
+    ]
+}
