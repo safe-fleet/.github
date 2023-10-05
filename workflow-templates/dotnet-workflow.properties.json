@@ -1,7 +1,7 @@
 {
     "name": ".NET Safe Fleet Build & Test",
     "description": "Safe Fleet NET starter workflow.",
-    "iconName": "file-code",
+    "iconName": "dotnet-logo",
     "categories": [
         "continuous-integration",
         "testing",
