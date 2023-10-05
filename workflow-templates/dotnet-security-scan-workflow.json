@@ -1,0 +1,16 @@
+{
+  "name": ".NET Github Security Scan",
+  "description": "Safe Fleet .NET Github Security Scan workflow.",
+  "iconName": "file-code",
+  "categories": [
+    "continuous-integration",
+    "C#"
+  ],
+  "filePatterns": [
+    "package.json$",
+    "^Dockerfile",
+    ".*\\.md$",
+    ".*\\.csproj$",
+    ".*\\.sln$"
+  ]
+}
