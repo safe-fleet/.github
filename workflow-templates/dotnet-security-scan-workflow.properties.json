@@ -1,7 +1,7 @@
 {
   "name": ".NET Github Security Scan",
   "description": "Safe Fleet .NET Github Security Scan workflow.",
-  "iconName": "file-code",
+  "iconName": "dotnet-logo",
   "categories": [
     "continuous-integration",
     "C#"
