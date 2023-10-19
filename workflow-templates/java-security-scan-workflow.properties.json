@@ -1,0 +1,14 @@
+{
+  "name": "Java Github Security Scan",
+  "description": "Safe Fleet Java Github Security Scan workflow.",
+  "iconName": "java-icon",
+  "categories": [
+    "continuous-integration",
+    "Java"
+  ],
+  "filePatterns": [
+    "package.json$",
+    "^Dockerfile",
+    ".*\\.md$"
+  ]
+}
