@@ -9,7 +9,7 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "Java Github Security Scan"
+name: "Java with Maven Github Security Scan"
 
 on:
   push:
@@ -56,7 +56,7 @@ jobs:
         env:
           GITHUB_USERNAME: ${{ vars.REGISTRY_USER }}
           GITHUB_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
- 
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
