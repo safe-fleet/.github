@@ -30,20 +30,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        java: [ '17' ]
         language:
           - java
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up JDK 17
+      - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: "17"
-          server-id: safefleet-github
-          server-username: GITHUB_USERNAME
-          server-password: GITHUB_TOKEN
+          java-version: ${{ matrix.java }}
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
@@ -51,11 +49,27 @@ jobs:
           languages: ${{ matrix.language }}
           queries: security-extended,security-and-quality
 
+      - name: Prepare Maven Settings
+        uses: whelk-io/maven-settings-xml-action@v21
+        with:
+          repositories: '[{ "id": "safefleet-github", "url": "${env.MAVEN_REGISTRY_URL}" }]'
+          servers: '[{ "id": "safefleet-github", "username": "${env.GITHUB_USERNAME}", "password": "${env.GITHUB_TOKEN}" }]'
+
       - name: Build with Maven
         run: mvn clean install -DskipTests
         env:
+          MAVEN_REGISTRY_URL: ${{ vars.MAVEN_REGISTRY_URL }}
           GITHUB_USERNAME: ${{ vars.REGISTRY_USER }}
           GITHUB_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+
+      - name: Cleanup build artifacts
+        if: always()
+        continue-on-error: true
+        run: |
+          ls -la ./
+          rm -rf ./* || true
+          rm -rf ./.??* || true
+          ls -la ./
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
