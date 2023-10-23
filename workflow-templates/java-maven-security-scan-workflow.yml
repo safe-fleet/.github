@@ -13,9 +13,9 @@ name: "Java with Maven Github Security Scan"
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ $default-branch ]
   pull_request:
-    branches: [ "develop" ]
+    branches: [ $default-branch ]
   schedule:
     - cron: 26 20 * * 0
 jobs:

@@ -13,10 +13,10 @@ name: ".NET Github Security Scan"
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: [ $default-branch ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "develop" ]
+    branches: [ $default-branch ]
   schedule:
     - cron: '25 6 * * 6'
 
