@@ -85,13 +85,13 @@ jobs:
     #     dotnet build
 
     - name: Cleanup build artifacts
-        if: always()
-        continue-on-error: true
-        run: |
-          ls -la ./
-          rm -rf ./* || true
-          rm -rf ./.??* || true
-          ls -la ./
+      if: always()
+      continue-on-error: true
+      run: |
+        ls -la ./
+        rm -rf ./* || true
+        rm -rf ./.??* || true
+        ls -la ./
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
