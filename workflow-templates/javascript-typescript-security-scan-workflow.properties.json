@@ -1,0 +1,15 @@
+{
+  "name": "Javascript-Typescript Github Security Scan",
+  "description": "Safe Fleet Javascript-Typescript Github Security Scan workflow.",
+  "iconName": "javascript-icon",
+  "categories": [
+    "continuous-integration",
+    "javascript",
+    "typescript"
+  ],
+  "filePatterns": [
+    "package.json$",
+    "^Dockerfile",
+    ".*\\.md$"
+  ]
+}
