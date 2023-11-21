@@ -4,8 +4,7 @@
   "iconName": "javascript-icon",
   "categories": [
     "continuous-integration",
-    "javascript",
-    "typescript"
+    "javascript-typescript"
   ],
   "filePatterns": [
     "package.json$",
