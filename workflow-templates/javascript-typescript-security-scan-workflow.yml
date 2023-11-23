@@ -47,15 +47,7 @@ jobs:
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
 
-      - name: Cleanup build artifacts
-        if: always()
-        continue-on-error: true
-        run: |
-          ls -la ./
-          rm -rf ./* || true
-          ls -la ./
-
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
-          category: /language:${{matrix.language}}
+          category: "/language:${{matrix.language}}"
